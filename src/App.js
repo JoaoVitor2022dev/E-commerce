@@ -1,9 +1,11 @@
 import './App.css';
 
+import Store from "./pages/store"
+
 function App() {
   return (
     <div className="App">
-      <h1>testando o React</h1>
+    <Store/>
     </div>
   );
 }
