@@ -1,8 +1,10 @@
 import{ useEffect, useState } from 'react'
+import { BsFillCartCheckFill, BsFillCartPlusFill  } from 'react-icons/bs'
 
 const Store = () => {
 
  const [ data , setData ] = useState([]); 
+ const [cart , setCart] = useState([]); 
 
  // requisition 
  useEffect(() => {
@@ -22,6 +24,15 @@ const Store = () => {
    
  },[]); 
 
+
+ handleClick = (objeto) => {
+   const element = cart.find((e) => e.id ===  objeto.id)
+   if (element) {
+    
+   }
+ }; 
+
+
 console.log(data);
 
   return (
@@ -34,6 +45,19 @@ console.log(data);
                 <h4>{e.title}</h4>
                 <img src={e.thumbnail} alt="" />
                 <h4> R$: {e.price}</h4>
+                <button
+                 onClick={() => handleClick(e)}
+                >
+                  {
+                    cart.some((itemCart) => itemCart.id === e.id) ? 
+                    ( 
+                     <BsFillCartCheckFill/>
+                    ) : 
+                    (
+                    <BsFillCartPlusFill/>
+                    )
+                  }
+                </button>
             </div>
            ))
            }
