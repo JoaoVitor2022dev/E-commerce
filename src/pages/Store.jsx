@@ -28,8 +28,11 @@ const Store = () => {
  handleClick = (objeto) => {
    const element = cart.find((e) => e.id ===  objeto.id)
    if (element) {
-    
-   }
+    const arrFiltter = cart.filter((e) => e.id !== objeto.id )
+    setCart(arrFiltter); 
+  } else {
+    setCart([...cart, objeto]); 
+  }
  }; 
 
 
